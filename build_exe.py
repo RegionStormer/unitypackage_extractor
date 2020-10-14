@@ -11,7 +11,8 @@ if __name__ == '__main__':
     #shell=True with pyenv... gets mad otherwise
     subprocess.run(["pyinstaller", "unitypackage_extractor/extractor.py",
         "--exclude-module", "ssl",
-        "--exclude-module", "socket"], shell=True)
+        "--exclude-module", "socket",
+        "--onefile"], shell=True)
 
     #Zip it all up
-    shutil.make_archive(f"unitypackage_extractor_{'64' if is64bit else '32'}", "zip", "dist/extractor")
+    shutil.make_archive(f"unitypackage_extractor_{'64' if is64bit else '32'}", "zip", "dist")
